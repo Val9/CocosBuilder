@@ -1,87 +1,90 @@
-/*
- * CocosBuilder: http://www.cocosbuilder.com
- *
- * Copyright (c) 2012 Zynga Inc.
- *
- * Permission is hereby granted, free of charge, to any person obtaining a copy
- * of this software and associated documentation files (the "Software"), to deal
- * in the Software without restriction, including without limitation the rights
- * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
- * copies of the Software, and to permit persons to whom the Software is
- * furnished to do so, subject to the following conditions:
- *
- * The above copyright notice and this permission notice shall be included in
- * all copies or substantial portions of the Software.
- *
- * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
- * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
- * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
- * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
- * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
- * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
- * THE SOFTWARE.
- */
+//
+//  CCBXAndEngineXml.m
+//  CCBAndEngineXml
+//
+//  Created by Nicolas Gramlich on 4/27/12.
+//  Copyright (c) 2012 Zynga. All rights reserved.
+//
 
 #import "CCBXAndEngineXml.h"
 #import "XMLWriter.h"
-
-#define CCBX_VERSION 3
-
-#define CCBAEX_VERSION 1
-
-#define TAG_CCB @"CCB"
-#define TAG_CCB_ATTRIBUTE_STAGE_HEIGHT @"stageHeight"
-#define TAG_CCB_ATTRIBUTE_STAGE_WIDTH @"stageWidth"
-#define TAG_CCB_ATTRIBUTE_CENTERED_ORIGIN @"centeredOrigin"
-#define TAG_CCB_ATTRIBUTE_VERSION @"version"
+#import "CCNodeExporter.h"
 
 @implementation CCBXAndEngineXml
 
 - (NSString*) extension
 {
-    return @"ccbaex";
+    return CCBAEX_FILE_EXTENSION;
 }
 
-- (NSData*) exportDocument:(NSDictionary*)doc flattenPaths:(BOOL)flattenPaths
+- (NSData*) exportDocument:(NSDictionary *)pDocument flattenPaths:(BOOL)pFlattenPaths
 {
-    /* Sanity check for correct document version. */
-    int fileVersion = [[doc objectForKey:@"fileVersion"] intValue];
-    if(fileVersion != CCBX_VERSION) {
-        /* Get the XML result as a NSString. */
-        NSString* error = [NSString stringWithFormat:@"<fail reason=\"Supplied document has unsupported version='%d'!\"/>", fileVersion];
+    NSLog(@"CCBAndEngineXml: Exporting document...");
 
-        /* Return the error message as NSData. */
-        return [error dataUsingEncoding:NSUTF8StringEncoding];
+    /* Sanity check for correct document version. */
+    int fileVersion = [[pDocument objectForKey:CCB_FILEVERSION] intValue];
+    if(fileVersion != CCB_VERSION) {
+        /* Raise an exception. */
+        [NSException raise:NSInternalInconsistencyException format:@"Supplied document has unsupported version='%d'!", fileVersion];
+        return nil;
     }
 
     /* Allocate XMLWriter. */
-    XMLWriter* xmlWriter = [[XMLWriter alloc]init];
+    XMLWriter * xmlWriter = [[XMLWriter alloc]init];
 
     [xmlWriter write:@"<?xml version=\"1.0\" encoding=\"UTF-8\"?>"];
 
     /* Traverse SceneGraph. */
-    [xmlWriter writeStartElement:TAG_CCB];
-    [xmlWriter writeAttribute:TAG_CCB_ATTRIBUTE_STAGE_WIDTH value:[[doc objectForKey:@"stageWidth"] stringValue]];
-    [xmlWriter writeAttribute:TAG_CCB_ATTRIBUTE_STAGE_HEIGHT value:[[doc objectForKey:@"stageHeight"] stringValue]];
-    [xmlWriter writeAttribute:TAG_CCB_ATTRIBUTE_CENTERED_ORIGIN value:[[doc objectForKey:@"centeredOrigin"] boolValue] ? @"true" : @"false"];
+    [xmlWriter writeStartElement:CCBAEX_TAG_CCB];
+    [xmlWriter writeAttribute:CCBAEX_TAG_CCB_ATTRIBUTE_STAGE_WIDTH value:[[pDocument objectForKey:CCB_STAGE_WIDTH] stringValue]];
+    [xmlWriter writeAttribute:CCBAEX_TAG_CCB_ATTRIBUTE_STAGE_HEIGHT value:[[pDocument objectForKey:CCB_STAGE_HEIGHT] stringValue]];
+    [xmlWriter writeAttribute:CCBAEX_TAG_CCB_ATTRIBUTE_CENTERED_ORIGIN value:[[pDocument objectForKey:CCB_CENTEREDORIGIN] boolValue] ? @"true" : @"false"];
+    [xmlWriter writeAttribute:CCBAEX_TAG_CCB_ATTRIBUTE_VERSION value:[[NSNumber numberWithInt:CCBAEX_VERSION] stringValue]];
 
-    {
-        /* 
-        NSArray* nodeGraph = [doc objectForKey:@"nodeGraph"];
-        if(nodeGraph) {
-            parseNode(
-        }
-        */
+    /* Kick off exporting the scene graph. */
+    NSDictionary * rootNode = [pDocument objectForKey:CCB_NODEGRAPH];
+    if(rootNode) {
+        [self exportNode:rootNode withXMLWriter:xmlWriter];
     }
-    [xmlWriter writeAttribute:TAG_CCB_ATTRIBUTE_VERSION value:[[NSNumber numberWithInt:CCBAEX_VERSION] stringValue]];
 
     [xmlWriter writeEndElement];
 
+    NSLog(@"CCBAndEngineXml: Exporting document... done.");
+
     /* Get the XML result as a NSString. */
-    NSString* xml = [xmlWriter toString];
+    NSString * xml = [xmlWriter toString];
 
     /* Return is as NSData. */
     return [xml dataUsingEncoding:NSUTF8StringEncoding];
+}
+
+- (void) exportNodes:(NSArray *)pNodes withXMLWriter:(XMLWriter *)pXMLWriter
+{
+    if(pNodes) {
+        for (NSDictionary * node in pNodes) {
+            [self exportNode:node withXMLWriter:pXMLWriter];
+        }
+    }
+}
+
+- (void) exportNode:(NSDictionary *)pNode withXMLWriter:(XMLWriter *)pXMLWriter
+{
+    NSString * baseClass = [pNode objectForKey:CCB_BASECLASS];
+    NSString * customClass = [pNode objectForKey:CCB_CUSTOMCLASS];
+
+    /* If there is a custom class, pick it. Otherwise pick the base class. */
+    NSString * className;
+    if(customClass == nil || [customClass length] == 0) {
+        NSLog(@"CCBAndEngineXml: Exporting node: '%@'.", baseClass);
+        className = baseClass;
+    } else {
+        NSLog(@"CCBAndEngineXml: Exporting custom node: '%@'.", customClass);
+        className = customClass;
+    }
+
+    if([className isEqualToString:CCB_CCNODE_CLASS_NAME]) {
+        [[[CCNodeExporter alloc] init] exportNode:pNode withXMLWriter:pXMLWriter withCCBXAndEngineXml:self];
+    }
 }
 
 @end

@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		4A330CF7154B5EC700225121 /* XMLWriter.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A330CF6154B5EC700225121 /* XMLWriter.m */; };
+		4AF26267154F13CB0006ADFE /* CCNodeExporter.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AF26266154F13CB0006ADFE /* CCNodeExporter.m */; };
+		4AF2626E154F30B50006ADFE /* NodeExporter.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AF2626D154F30B50006ADFE /* NodeExporter.m */; };
 		E38B844814FF93C30030AFF2 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E38B844714FF93C30030AFF2 /* Cocoa.framework */; };
 		E38B845214FF93C30030AFF2 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = E38B845014FF93C30030AFF2 /* InfoPlist.strings */; };
 		E38B845B14FF93FC0030AFF2 /* CCBXAndEngineXml.m in Sources */ = {isa = PBXBuildFile; fileRef = E38B845A14FF93FC0030AFF2 /* CCBXAndEngineXml.m */; };
@@ -16,6 +18,10 @@
 /* Begin PBXFileReference section */
 		4A330CF5154B5EC700225121 /* XMLWriter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XMLWriter.h; sourceTree = "<group>"; };
 		4A330CF6154B5EC700225121 /* XMLWriter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XMLWriter.m; sourceTree = "<group>"; };
+		4AF26265154F13CB0006ADFE /* CCNodeExporter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCNodeExporter.h; sourceTree = "<group>"; };
+		4AF26266154F13CB0006ADFE /* CCNodeExporter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCNodeExporter.m; sourceTree = "<group>"; };
+		4AF2626C154F30B50006ADFE /* NodeExporter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NodeExporter.h; sourceTree = "<group>"; };
+		4AF2626D154F30B50006ADFE /* NodeExporter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NodeExporter.m; sourceTree = "<group>"; };
 		E38B844414FF93C30030AFF2 /* CCBAndEngineXml.ccbPlugExport */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CCBAndEngineXml.ccbPlugExport; sourceTree = BUILT_PRODUCTS_DIR; };
 		E38B844714FF93C30030AFF2 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		E38B844A14FF93C30030AFF2 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
@@ -86,6 +92,10 @@
 				E38B845C14FF95290030AFF2 /* CCBX.h */,
 				E38B845914FF93FC0030AFF2 /* CCBXAndEngineXml.h */,
 				E38B845A14FF93FC0030AFF2 /* CCBXAndEngineXml.m */,
+				4AF26265154F13CB0006ADFE /* CCNodeExporter.h */,
+				4AF26266154F13CB0006ADFE /* CCNodeExporter.m */,
+				4AF2626C154F30B50006ADFE /* NodeExporter.h */,
+				4AF2626D154F30B50006ADFE /* NodeExporter.m */,
 			);
 			name = Souce;
 			path = Source;
@@ -181,6 +191,8 @@
 			files = (
 				E38B845B14FF93FC0030AFF2 /* CCBXAndEngineXml.m in Sources */,
 				4A330CF7154B5EC700225121 /* XMLWriter.m in Sources */,
+				4AF26267154F13CB0006ADFE /* CCNodeExporter.m in Sources */,
+				4AF2626E154F30B50006ADFE /* NodeExporter.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
