@@ -30,6 +30,8 @@
     [self exportCCLabelTTFFontSize:pNode withProperties:pProperties withXMLWriter:pXMLWriter withCCBXAndEngineXml:pCCBXAndEngineXml];
     [self exportCCLabelTTFString:pNode withProperties:pProperties withXMLWriter:pXMLWriter withCCBXAndEngineXml:pCCBXAndEngineXml];
     [self exportCCLabelTTFDimensions:pNode withProperties:pProperties withXMLWriter:pXMLWriter withCCBXAndEngineXml:pCCBXAndEngineXml];
+    [self exportCCLabelTTFHorizontalAlignment:pNode withProperties:pProperties withXMLWriter:pXMLWriter withCCBXAndEngineXml:pCCBXAndEngineXml];
+    [self exportCCLabelTTFVerticalAlignment:pNode withProperties:pProperties withXMLWriter:pXMLWriter withCCBXAndEngineXml:pCCBXAndEngineXml];
 }
 
 - (void) exportCCLabelTTFFontName:(NSDictionary *)pNode withProperties:(NSArray *)pProperties withXMLWriter:(XMLWriter *)pXMLWriter withCCBXAndEngineXml:(CCBXAndEngineXml *)pCCBXAndEngineXml
@@ -42,7 +44,7 @@
 - (void) exportCCLabelTTFFontSize:(NSDictionary *)pNode withProperties:(NSArray *)pProperties withXMLWriter:(XMLWriter *)pXMLWriter withCCBXAndEngineXml:(CCBXAndEngineXml *)pCCBXAndEngineXml
 {
     float fontSize = [[self findProperty:CCB_CCLABELTTF_PROPERTY_FONT_SIZE withProperties:pProperties] floatValue];
-    
+
     [pXMLWriter writeAttribute:CCBAEX_TAG_CCLABELTTF_ATTRIBUTE_FONT_SIZE value:[[NSNumber numberWithFloat:fontSize] stringValue]];
 }
 
