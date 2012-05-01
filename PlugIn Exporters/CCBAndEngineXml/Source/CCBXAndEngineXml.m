@@ -8,6 +8,8 @@
 
 #import "CCBXAndEngineXml.h"
 #import "XMLWriter.h"
+
+#import "CCBFileExporter.h"
 #import "CCNodeExporter.h"
 #import "CCSpriteExporter.h"
 #import "CCScale9SpriteExporter.h"
@@ -100,7 +102,9 @@
 
 - (NodeExporter *) getNodeExporterFromClassName:(NSString *)pClassName
 {
-    if([pClassName isEqualToString:CCB_CCNODE_CLASS_NAME]) {
+    if([pClassName isEqualToString:CCB_CCBFILE_CLASS_NAME]) {
+        return [[[CCBFileExporter alloc] init] autorelease];                       
+    } else if([pClassName isEqualToString:CCB_CCNODE_CLASS_NAME]) {
         return [[[CCNodeExporter alloc] init] autorelease];                       
     } else if([pClassName isEqualToString:CCB_CCSPRITE_CLASS_NAME]) {
         return [[[CCSpriteExporter alloc] init] autorelease];
