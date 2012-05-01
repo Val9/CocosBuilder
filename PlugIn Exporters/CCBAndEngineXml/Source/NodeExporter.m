@@ -77,12 +77,12 @@
 - (NSString *)convertSizeTypeValueToSizeType:(int)pSizeTypeValue
 {
     switch(pSizeTypeValue) {
-        case 0:
+        case CCB_SIZE_TYPE_ABSOLUTE:
             return CCBAEX_SIZE_TYPE_ABSOLUTE;
-        case 1:
+        case CCB_SIZE_TYPE_PERCENT_PARENT:
             return CCBAEX_SIZE_TYPE_PERCENT_PARENT;
-        case 2:
-            return CCBAEX_SIZE_TYPE_ABSOLUTE;
+        case CCB_SIZE_TYPE_RELATIVE_PARENT:
+            return CCBAEX_SIZE_TYPE_RELATIVE_PARENT;
         default:
             [NSException raise:NSInternalInconsistencyException format:@"Illegal parameter: '%d'!", pSizeTypeValue];
             return nil;
