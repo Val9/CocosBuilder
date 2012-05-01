@@ -14,6 +14,7 @@
 		4AF2628E1550663C0006ADFE /* NSMutableString+XMLEncoding.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AF262891550663C0006ADFE /* NSMutableString+XMLEncoding.m */; };
 		4AF2628F1550663C0006ADFE /* NSString+XMLEncoding.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AF2628B1550663C0006ADFE /* NSString+XMLEncoding.m */; };
 		4AF262901550663C0006ADFE /* XMLWriter.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AF2628D1550663C0006ADFE /* XMLWriter.m */; };
+		4AF262931550680F0006ADFE /* CCLabelTTFExporter.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AF262921550680F0006ADFE /* CCLabelTTFExporter.m */; };
 		E38B844814FF93C30030AFF2 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E38B844714FF93C30030AFF2 /* Cocoa.framework */; };
 		E38B845214FF93C30030AFF2 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = E38B845014FF93C30030AFF2 /* InfoPlist.strings */; };
 		E38B845B14FF93FC0030AFF2 /* CCBXAndEngineXml.m in Sources */ = {isa = PBXBuildFile; fileRef = E38B845A14FF93FC0030AFF2 /* CCBXAndEngineXml.m */; };
@@ -34,6 +35,8 @@
 		4AF2628B1550663C0006ADFE /* NSString+XMLEncoding.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSString+XMLEncoding.m"; path = "xml/NSString+XMLEncoding.m"; sourceTree = "<group>"; };
 		4AF2628C1550663C0006ADFE /* XMLWriter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = XMLWriter.h; path = xml/XMLWriter.h; sourceTree = "<group>"; };
 		4AF2628D1550663C0006ADFE /* XMLWriter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = XMLWriter.m; path = xml/XMLWriter.m; sourceTree = "<group>"; };
+		4AF262911550680F0006ADFE /* CCLabelTTFExporter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCLabelTTFExporter.h; sourceTree = "<group>"; };
+		4AF262921550680F0006ADFE /* CCLabelTTFExporter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCLabelTTFExporter.m; sourceTree = "<group>"; };
 		E38B844414FF93C30030AFF2 /* CCBAndEngineXml.ccbPlugExport */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CCBAndEngineXml.ccbPlugExport; sourceTree = BUILT_PRODUCTS_DIR; };
 		E38B844714FF93C30030AFF2 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		E38B844A14FF93C30030AFF2 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
@@ -111,19 +114,21 @@
 		E38B844D14FF93C30030AFF2 /* Souce */ = {
 			isa = PBXGroup;
 			children = (
-				4AF26287155066260006ADFE /* xml */,
-				4AF2627F15505E350006ADFE /* CCLabelBMFontExporter.h */,
-				4AF2628015505E360006ADFE /* CCLabelBMFontExporter.m */,
-				4AF2627C154FC43A0006ADFE /* CCSpriteExporter.h */,
-				4AF2627D154FC43A0006ADFE /* CCSpriteExporter.m */,
-				E38B844E14FF93C30030AFF2 /* Supporting Files */,
 				E38B845C14FF95290030AFF2 /* CCBX.h */,
 				E38B845914FF93FC0030AFF2 /* CCBXAndEngineXml.h */,
 				E38B845A14FF93FC0030AFF2 /* CCBXAndEngineXml.m */,
+				4AF262911550680F0006ADFE /* CCLabelTTFExporter.h */,
+				4AF262921550680F0006ADFE /* CCLabelTTFExporter.m */,
+				4AF2627F15505E350006ADFE /* CCLabelBMFontExporter.h */,
+				4AF2628015505E360006ADFE /* CCLabelBMFontExporter.m */,
 				4AF26265154F13CB0006ADFE /* CCNodeExporter.h */,
 				4AF26266154F13CB0006ADFE /* CCNodeExporter.m */,
+				4AF2627C154FC43A0006ADFE /* CCSpriteExporter.h */,
+				4AF2627D154FC43A0006ADFE /* CCSpriteExporter.m */,
 				4AF2626C154F30B50006ADFE /* NodeExporter.h */,
 				4AF2626D154F30B50006ADFE /* NodeExporter.m */,
+				E38B844E14FF93C30030AFF2 /* Supporting Files */,
+				4AF26287155066260006ADFE /* xml */,
 			);
 			name = Souce;
 			path = Source;
@@ -225,6 +230,7 @@
 				4AF2628E1550663C0006ADFE /* NSMutableString+XMLEncoding.m in Sources */,
 				4AF2628F1550663C0006ADFE /* NSString+XMLEncoding.m in Sources */,
 				4AF262901550663C0006ADFE /* XMLWriter.m in Sources */,
+				4AF262931550680F0006ADFE /* CCLabelTTFExporter.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

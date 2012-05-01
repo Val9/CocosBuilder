@@ -11,6 +11,7 @@
 #import "CCNodeExporter.h"
 #import "CCSpriteExporter.h"
 #import "CCLabelBMFontExporter.h"
+#import "CCLabelTTFExporter.h"
 
 @implementation CCBXAndEngineXml
 
@@ -101,6 +102,8 @@
         return [[[CCSpriteExporter alloc] init] autorelease];
     } else if([pClassName isEqualToString:CCB_CCLABELBMFONT_CLASS_NAME]) {
         return [[[CCLabelBMFontExporter alloc] init] autorelease];
+    } else if([pClassName isEqualToString:CCB_CCLABELTTF_CLASS_NAME]) {
+        return [[[CCLabelTTFExporter alloc] init] autorelease];
     } else {
         [NSException raise:NSInternalInconsistencyException format:@"Unexpected className: '%@'!", pClassName];
         return nil;
