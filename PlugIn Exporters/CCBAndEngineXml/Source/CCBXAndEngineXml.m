@@ -50,6 +50,8 @@
 
     /* Get the XML result as a NSString. */
     NSString * xml = [xmlWriter toString];
+    
+    [xmlWriter release];
 
     /* Return is as NSData. */
     return [xml dataUsingEncoding:NSUTF8StringEncoding];
@@ -79,12 +81,21 @@
         className = customClass;
     }
 
-    if([className isEqualToString:CCB_CCNODE_CLASS_NAME]) {
-        [[[CCNodeExporter alloc] init] exportNode:pNode withXMLWriter:pXMLWriter withCCBXAndEngineXml:self];
-    } else if([className isEqualToString:CCB_CCSPRITE_CLASS_NAME]) {
-        [[[CCSpriteExporter alloc] init] exportNode:pNode withXMLWriter:pXMLWriter withCCBXAndEngineXml:self];
+    NodeExporter * nodeExporter = [self getNodeExporterFromClassName:className];
+    if(nodeExporter) {
+        [nodeExporter exportNode:pNode withXMLWriter:pXMLWriter withCCBXAndEngineXml:self];
+    }
+}
+
+- (NodeExporter *) getNodeExporterFromClassName:(NSString *)pClassName
+{
+    if([pClassName isEqualToString:CCB_CCNODE_CLASS_NAME]) {
+        return [[[CCNodeExporter alloc] init] autorelease];                       
+    } else if([pClassName isEqualToString:CCB_CCSPRITE_CLASS_NAME]) {
+        return [[[CCSpriteExporter alloc] init] autorelease];
     } else {
-        [NSException raise:NSInternalInconsistencyException format:@"Unexpected className: '%@'!", className];
+        [NSException raise:NSInternalInconsistencyException format:@"Unexpected className: '%@'!", pClassName];
+        return nil;
     }
 }
 
