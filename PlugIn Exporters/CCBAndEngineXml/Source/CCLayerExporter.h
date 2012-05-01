@@ -1,5 +1,5 @@
 //
-//  CCLayer.h
+//  CCLayerExporter.h
 //  CCBAndEngineXml
 //
 //  Created by Nicolas Gramlich on 5/01/12.

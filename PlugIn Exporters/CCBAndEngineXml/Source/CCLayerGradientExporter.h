@@ -1,5 +1,5 @@
 //
-//  CCLayerGradient.h
+//  CCLayerGradientExporter.h
 //  CCBAndEngineXml
 //
 //  Created by Nicolas Gramlich on 5/01/12.
