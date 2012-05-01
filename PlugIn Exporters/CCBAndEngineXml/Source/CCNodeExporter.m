@@ -74,7 +74,7 @@
 {
     BOOL isRelativeAnchorPoint = [[self findProperty:CCB_CCNODE_PROPERTY_IS_RELATIVE_ANCHORPOINT withProperties:pProperties] boolValue];
 
-    [pXMLWriter writeAttribute:CCBAEX_TAG_CCNODE_ATTRIBUTE_ANCHORPOINT_IGNORE_FOR_OFFSET value:(isRelativeAnchorPoint) ? @"true" : @"false"];
+    [pXMLWriter writeAttribute:CCBAEX_TAG_CCNODE_ATTRIBUTE_ANCHORPOINT_IGNORE_FOR_OFFSET value:(isRelativeAnchorPoint) ? @"false" : @"true"];
 }
 
 - (void) exportCCNodeScale:(NSDictionary *)pNode withProperties:(NSArray *)pProperties withXMLWriter:(XMLWriter *)pXMLWriter withCCBXAndEngineXml:(CCBXAndEngineXml *)pCCBXAndEngineXml
