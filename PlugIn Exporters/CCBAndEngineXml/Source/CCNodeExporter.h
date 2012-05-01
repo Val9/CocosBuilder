@@ -18,6 +18,9 @@
 #define CCB_CCNODE_PROPERTY_ROTATION @"rotation"
 #define CCB_CCNODE_PROPERTY_TAG @"tag"
 #define CCB_CCNODE_PROPERTY_VISIBLE @"visible"
+#define CCB_CCNODE_PROPERTY_BLENDFUNC @"blendFunc"
+#define CCB_CCNODE_PROPERTY_COLOR @"color"
+#define CCB_CCNODE_PROPERTY_OPACITY @"opacity"
 
 #define CCBAEX_TAG_CCNODE @"CCNode"
 #define CCBAEX_TAG_CCNODE_ATTRIBUTE_POSITION_X @"x"
@@ -34,11 +37,28 @@
 #define CCBAEX_TAG_CCNODE_ATTRIBUTE_ROTATION @"rotation"
 #define CCBAEX_TAG_CCNODE_ATTRIBUTE_TAG @"tag"
 #define CCBAEX_TAG_CCNODE_ATTRIBUTE_VISIBLE @"visible"
+#define CCBAEX_TAG_CCNODE_ATTRIBUTE_COLOR_RED @"red"
+#define CCBAEX_TAG_CCNODE_ATTRIBUTE_COLOR_GREEN @"green"
+#define CCBAEX_TAG_CCNODE_ATTRIBUTE_COLOR_BLUE @"blue"
+#define CCBAEX_TAG_CCNODE_ATTRIBUTE_COLOR_ALPHA @"alpha"
+#define CCBAEX_TAG_CCNODE_ATTRIBUTE_BLENDFUNCTION_SOURCE @"blendFunctionSource"
+#define CCBAEX_TAG_CCNODE_ATTRIBUTE_BLENDFUNCTION_DESTINATION @"blendFunctionDestination"
 
 @interface CCNodeExporter : NodeExporter
 
 - (id) initWithNodeName:(NSString *)pNodeName;
 
 - (void) exportCCNodeProperties:(NSDictionary *)pNode withProperties:(NSArray *)pProperties withXMLWriter:(XMLWriter *)pXMLWriter withCCBXAndEngineXml:(CCBXAndEngineXml *)pCCBXAndEngineXml;
+
+- (void) exportCCNodeContentSize:(NSDictionary *)pNode withProperties:(NSArray *)pProperties withXMLWriter:(XMLWriter *)pXMLWriter withCCBXAndEngineXml:(CCBXAndEngineXml *)pCCBXAndEngineXml;
+- (void) exportCCNodePosition:(NSDictionary *)pNode withProperties:(NSArray *)pProperties withXMLWriter:(XMLWriter *)pXMLWriter withCCBXAndEngineXml:(CCBXAndEngineXml *)pCCBXAndEngineXml;
+- (void) exportCCNodeAnchorPoint:(NSDictionary *)pNode withProperties:(NSArray *)pProperties withXMLWriter:(XMLWriter *)pXMLWriter withCCBXAndEngineXml:(CCBXAndEngineXml *)pCCBXAndEngineXml;
+- (void) exportCCNodeIsRelativeAnchorPoint:(NSDictionary *)pNode withProperties:(NSArray *)pProperties withXMLWriter:(XMLWriter *)pXMLWriter withCCBXAndEngineXml:(CCBXAndEngineXml *)pCCBXAndEngineXml;
+- (void) exportCCNodeScale:(NSDictionary *)pNode withProperties:(NSArray *)pProperties withXMLWriter:(XMLWriter *)pXMLWriter withCCBXAndEngineXml:(CCBXAndEngineXml *)pCCBXAndEngineXml;
+- (void) exportCCNodeRotation:(NSDictionary *)pNode withProperties:(NSArray *)pProperties withXMLWriter:(XMLWriter *)pXMLWriter withCCBXAndEngineXml:(CCBXAndEngineXml *)pCCBXAndEngineXml;
+- (void) exportCCNodeVisible:(NSDictionary *)pNode withProperties:(NSArray *)pProperties withXMLWriter:(XMLWriter *)pXMLWriter withCCBXAndEngineXml:(CCBXAndEngineXml *)pCCBXAndEngineXml;
+- (void) exportCCNodeTag:(NSDictionary *)pNode withProperties:(NSArray *)pProperties withXMLWriter:(XMLWriter *)pXMLWriter withCCBXAndEngineXml:(CCBXAndEngineXml *)pCCBXAndEngineXml;
+- (void) exportCCNodeColor:(NSDictionary *)pNode withProperties:(NSArray *)pProperties withXMLWriter:(XMLWriter *)pXMLWriter withCCBXAndEngineXml:(CCBXAndEngineXml *)pCCBXAndEngineXml;
+- (void) exportCCNodeBlendFunction:(NSDictionary *)pNode withProperties:(NSArray *)pProperties withXMLWriter:(XMLWriter *)pXMLWriter withCCBXAndEngineXml:(CCBXAndEngineXml *)pCCBXAndEngineXml;
 
 @end
