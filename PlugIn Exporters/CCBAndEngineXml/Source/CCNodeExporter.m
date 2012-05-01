@@ -63,11 +63,11 @@
     float scaleX = [[self findProperty:CCB_CCNODE_PROPERTY_SCALE withProperties:pProperties withIndex:0] floatValue];
     float scaleY = [[self findProperty:CCB_CCNODE_PROPERTY_SCALE withProperties:pProperties withIndex:1] floatValue];
     
-    [pXMLWriter writeAttribute:CCBAEX_TAG_CCNODE_ATTRIBUTE_ANCHORPOINT_X value:[[NSNumber numberWithFloat:scaleX] stringValue]];
-    [pXMLWriter writeAttribute:CCBAEX_TAG_CCNODE_ATTRIBUTE_ANCHORPOINT_Y value:[[NSNumber numberWithFloat:scaleY] stringValue]];
+    [pXMLWriter writeAttribute:CCBAEX_TAG_CCNODE_ATTRIBUTE_SCALE_X value:[[NSNumber numberWithFloat:scaleX] stringValue]];
+    [pXMLWriter writeAttribute:CCBAEX_TAG_CCNODE_ATTRIBUTE_SCALE_Y value:[[NSNumber numberWithFloat:scaleY] stringValue]];
 
     /* Rotation. */
-    float rotation = [[self findProperty:CCB_CCNODE_PROPERTY_ROTATION withProperties:pProperties withIndex:0] floatValue];
+    float rotation = [[self findProperty:CCB_CCNODE_PROPERTY_ROTATION withProperties:pProperties] floatValue];
 
     [pXMLWriter writeAttribute:CCBAEX_TAG_CCNODE_ATTRIBUTE_ROTATION value:[[NSNumber numberWithFloat:rotation] stringValue]];
 
