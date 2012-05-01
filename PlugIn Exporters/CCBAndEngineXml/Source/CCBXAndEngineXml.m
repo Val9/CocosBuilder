@@ -12,6 +12,7 @@
 #import "CCSpriteExporter.h"
 #import "CCLabelBMFontExporter.h"
 #import "CCLabelTTFExporter.h"
+#import "CCLayerColorExporter.h"
 
 @implementation CCBXAndEngineXml
 
@@ -104,6 +105,8 @@
         return [[[CCLabelBMFontExporter alloc] init] autorelease];
     } else if([pClassName isEqualToString:CCB_CCLABELTTF_CLASS_NAME]) {
         return [[[CCLabelTTFExporter alloc] init] autorelease];
+    } else if([pClassName isEqualToString:CCB_CCLAYERCOLOR_CLASS_NAME]) {
+        return [[[CCLayerColorExporter alloc] init] autorelease];
     } else {
         [NSException raise:NSInternalInconsistencyException format:@"Unexpected className: '%@'!", pClassName];
         return nil;
