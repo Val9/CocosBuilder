@@ -9,6 +9,7 @@
 #import "CCBXAndEngineXml.h"
 #import "XMLWriter.h"
 #import "CCNodeExporter.h"
+#import "CCSpriteExporter.h"
 
 @implementation CCBXAndEngineXml
 
@@ -19,8 +20,6 @@
 
 - (NSData*) exportDocument:(NSDictionary *)pDocument flattenPaths:(BOOL)pFlattenPaths
 {
-    NSLog(@"CCBAndEngineXml: Exporting document...");
-
     /* Sanity check for correct document version. */
     int fileVersion = [[pDocument objectForKey:CCB_FILEVERSION] intValue];
     if(fileVersion != CCB_VERSION) {
@@ -48,8 +47,6 @@
     }
 
     [xmlWriter writeEndElement];
-
-    NSLog(@"CCBAndEngineXml: Exporting document... done.");
 
     /* Get the XML result as a NSString. */
     NSString * xml = [xmlWriter toString];
@@ -84,6 +81,10 @@
 
     if([className isEqualToString:CCB_CCNODE_CLASS_NAME]) {
         [[[CCNodeExporter alloc] init] exportNode:pNode withXMLWriter:pXMLWriter withCCBXAndEngineXml:self];
+    } else if([className isEqualToString:CCB_CCSPRITE_CLASS_NAME]) {
+        [[[CCSpriteExporter alloc] init] exportNode:pNode withXMLWriter:pXMLWriter withCCBXAndEngineXml:self];
+    } else {
+        [NSException raise:NSInternalInconsistencyException format:@"Unexpected className: '%@'!", className];
     }
 }
 
