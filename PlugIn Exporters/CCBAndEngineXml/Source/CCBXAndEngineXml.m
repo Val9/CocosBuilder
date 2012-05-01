@@ -33,14 +33,14 @@
 
     [xmlWriter write:@"<?xml version=\"1.0\" encoding=\"UTF-8\"?>"];
 
-    /* Traverse SceneGraph. */
+    /* Write document root tag. */
     [xmlWriter writeStartElement:CCBAEX_TAG_CCB];
     [xmlWriter writeAttribute:CCBAEX_TAG_CCB_ATTRIBUTE_STAGE_WIDTH value:[[pDocument objectForKey:CCB_STAGE_WIDTH] stringValue]];
     [xmlWriter writeAttribute:CCBAEX_TAG_CCB_ATTRIBUTE_STAGE_HEIGHT value:[[pDocument objectForKey:CCB_STAGE_HEIGHT] stringValue]];
     [xmlWriter writeAttribute:CCBAEX_TAG_CCB_ATTRIBUTE_CENTERED_ORIGIN value:[[pDocument objectForKey:CCB_CENTEREDORIGIN] boolValue] ? @"true" : @"false"];
     [xmlWriter writeAttribute:CCBAEX_TAG_CCB_ATTRIBUTE_VERSION value:[[NSNumber numberWithInt:CCBAEX_VERSION] stringValue]];
 
-    /* Kick off exporting the scene graph. */
+    /* Traverse the scene graph, starting with the root node. */
     NSDictionary * rootNode = [pDocument objectForKey:CCB_NODEGRAPH];
     if(rootNode) {
         [self exportNode:rootNode withXMLWriter:xmlWriter];
