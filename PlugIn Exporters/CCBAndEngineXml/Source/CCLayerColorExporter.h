@@ -6,11 +6,11 @@
 //  Copyright (c) 2012 Zynga. All rights reserved.
 //
 
-#import "CCNodeExporter.h"
+#import "CCLayerExporter.h"
 
 #define CCB_CCLAYERCOLOR_CLASS_NAME @"CCLayerColor"
 
-@interface CCLayerColorExporter : CCNodeExporter
+@interface CCLayerColorExporter : CCLayerExporter
 
 - (void) exportCCLayerColorProperties:(NSDictionary *)pNode withProperties:(NSArray *)pProperties withXMLWriter:(XMLWriter *)pXMLWriter withCCBXAndEngineXml:(CCBXAndEngineXml *)pCCBXAndEngineXml;
 
