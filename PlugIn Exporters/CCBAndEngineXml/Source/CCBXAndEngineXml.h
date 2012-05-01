@@ -10,6 +10,9 @@
 #import "XMLWriter.h"
 
 #define CCB_VERSION 3
+#define CCB_FILE_EXTENSION @"ccb"
+#define CCBI_FILE_EXTENSION @"ccbi"
+
 #define CCB_FILEVERSION @"fileVersion"
 #define CCB_STAGE_WIDTH @"stageWidth"
 #define CCB_STAGE_HEIGHT @"stageHeight"

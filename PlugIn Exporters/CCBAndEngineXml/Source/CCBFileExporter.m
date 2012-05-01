@@ -7,6 +7,7 @@
 //
 
 #import "CCBFileExporter.h"
+#import "CCBXAndEngineXml.h"
 
 @implementation CCBFileExporter
 
@@ -26,7 +27,9 @@
 {
     NSString * ccbFile = [self findProperty:CCB_CCBFILE_PROPERTY_CCBFILE withProperties:pProperties];
 
-    [pXMLWriter writeAttribute:CCBAEX_TAG_CCBFILE_ATTRIBUTE_CCBFILENAME value:ccbFile];
+    NSString * ccbFileName = [ccbFile stringByReplacingOccurrencesOfString:[@"." stringByAppendingString:CCB_FILE_EXTENSION] withString:[@"." stringByAppendingString:CCBAEX_FILE_EXTENSION]];
+
+    [pXMLWriter writeAttribute:CCBAEX_TAG_CCBFILE_ATTRIBUTE_CCBFILENAME value:ccbFileName];
 }
 
 @end
