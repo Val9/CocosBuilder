@@ -18,6 +18,7 @@
 		4AF2629615507CF00006ADFE /* CCLayerColorExporter.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AF2629515507CF00006ADFE /* CCLayerColorExporter.m */; };
 		4AF2629915507F6A0006ADFE /* CCLayerExporter.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AF2629815507F6A0006ADFE /* CCLayerExporter.m */; };
 		4AF2629C155080DD0006ADFE /* CCLayerGradientExporter.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AF2629B155080DD0006ADFE /* CCLayerGradientExporter.m */; };
+		4AF2629F155085D10006ADFE /* CCScale9SpriteExporter.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AF2629E155085D10006ADFE /* CCScale9SpriteExporter.m */; };
 		E38B844814FF93C30030AFF2 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E38B844714FF93C30030AFF2 /* Cocoa.framework */; };
 		E38B845214FF93C30030AFF2 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = E38B845014FF93C30030AFF2 /* InfoPlist.strings */; };
 		E38B845B14FF93FC0030AFF2 /* CCBXAndEngineXml.m in Sources */ = {isa = PBXBuildFile; fileRef = E38B845A14FF93FC0030AFF2 /* CCBXAndEngineXml.m */; };
@@ -46,6 +47,8 @@
 		4AF2629815507F6A0006ADFE /* CCLayerExporter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCLayerExporter.m; sourceTree = "<group>"; };
 		4AF2629A155080DD0006ADFE /* CCLayerGradientExporter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCLayerGradientExporter.h; sourceTree = "<group>"; };
 		4AF2629B155080DD0006ADFE /* CCLayerGradientExporter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCLayerGradientExporter.m; sourceTree = "<group>"; };
+		4AF2629D155085D10006ADFE /* CCScale9SpriteExporter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCScale9SpriteExporter.h; sourceTree = "<group>"; };
+		4AF2629E155085D10006ADFE /* CCScale9SpriteExporter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCScale9SpriteExporter.m; sourceTree = "<group>"; };
 		E38B844414FF93C30030AFF2 /* CCBAndEngineXml.ccbPlugExport */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CCBAndEngineXml.ccbPlugExport; sourceTree = BUILT_PRODUCTS_DIR; };
 		E38B844714FF93C30030AFF2 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		E38B844A14FF93C30030AFF2 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
@@ -138,6 +141,8 @@
 				4AF2629B155080DD0006ADFE /* CCLayerGradientExporter.m */,
 				4AF26265154F13CB0006ADFE /* CCNodeExporter.h */,
 				4AF26266154F13CB0006ADFE /* CCNodeExporter.m */,
+				4AF2629D155085D10006ADFE /* CCScale9SpriteExporter.h */,
+				4AF2629E155085D10006ADFE /* CCScale9SpriteExporter.m */,
 				4AF2627C154FC43A0006ADFE /* CCSpriteExporter.h */,
 				4AF2627D154FC43A0006ADFE /* CCSpriteExporter.m */,
 				4AF2626C154F30B50006ADFE /* NodeExporter.h */,
@@ -249,6 +254,7 @@
 				4AF2629615507CF00006ADFE /* CCLayerColorExporter.m in Sources */,
 				4AF2629915507F6A0006ADFE /* CCLayerExporter.m in Sources */,
 				4AF2629C155080DD0006ADFE /* CCLayerGradientExporter.m in Sources */,
+				4AF2629F155085D10006ADFE /* CCScale9SpriteExporter.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

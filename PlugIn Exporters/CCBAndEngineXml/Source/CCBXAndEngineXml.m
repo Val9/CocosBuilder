@@ -10,6 +10,7 @@
 #import "XMLWriter.h"
 #import "CCNodeExporter.h"
 #import "CCSpriteExporter.h"
+#import "CCScale9SpriteExporter.h"
 #import "CCLabelBMFontExporter.h"
 #import "CCLabelTTFExporter.h"
 #import "CCLayerExporter.h"
@@ -103,6 +104,8 @@
         return [[[CCNodeExporter alloc] init] autorelease];                       
     } else if([pClassName isEqualToString:CCB_CCSPRITE_CLASS_NAME]) {
         return [[[CCSpriteExporter alloc] init] autorelease];
+    } else if([pClassName isEqualToString:CCB_CCSCALE9SPRITE_CLASS_NAME]) {
+        return [[[CCScale9SpriteExporter alloc] init] autorelease];
     } else if([pClassName isEqualToString:CCB_CCLABELBMFONT_CLASS_NAME]) {
         return [[[CCLabelBMFontExporter alloc] init] autorelease];
     } else if([pClassName isEqualToString:CCB_CCLABELTTF_CLASS_NAME]) {
