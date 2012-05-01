@@ -57,7 +57,7 @@
 
 - (NSString *)convertPositionTypeValueToPositionType:(int)pPositionTypeValue
 {
-    switch (pPositionTypeValue) {
+    switch(pPositionTypeValue) {
         case CCB_POSITION_TYPE_RELATIVE_BOTTOMLEFT:
             return CCBAEX_POSITION_TYPE_RELATIVE_BOTTOMLEFT;
         case CCB_POSITION_TYPE_RELATIVE_TOPLEFT:
@@ -76,7 +76,7 @@
 
 - (NSString *)convertSizeTypeValueToSizeType:(int)pSizeTypeValue
 {
-    switch (pSizeTypeValue) {
+    switch(pSizeTypeValue) {
         case 0:
             return CCBAEX_SIZE_TYPE_ABSOLUTE;
         case 1:

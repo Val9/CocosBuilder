@@ -10,6 +10,7 @@
 #import "XMLWriter.h"
 #import "CCNodeExporter.h"
 #import "CCSpriteExporter.h"
+#import "CCLabelBMFontExporter.h"
 
 @implementation CCBXAndEngineXml
 
@@ -29,7 +30,7 @@
     }
 
     /* Allocate XMLWriter. */
-    XMLWriter * xmlWriter = [[XMLWriter alloc]init];
+    XMLWriter * xmlWriter = [[XMLWriter alloc] init];
 
     [xmlWriter write:@"<?xml version=\"1.0\" encoding=\"UTF-8\"?>"];
 
@@ -46,21 +47,26 @@
         [self exportNode:rootNode withXMLWriter:xmlWriter];
     }
 
+    /* End document root tag. */
     [xmlWriter writeEndElement];
 
     /* Get the XML result as a NSString. */
     NSString * xml = [xmlWriter toString];
-    
+
+    /* Convert xml to NSData. */
+    NSData * result = [xml dataUsingEncoding:NSUTF8StringEncoding];
+
+    /* Cleanup. */
     [xmlWriter release];
 
-    /* Return is as NSData. */
-    return [xml dataUsingEncoding:NSUTF8StringEncoding];
+    /* Return result. */
+    return result;
 }
 
 - (void) exportNodes:(NSArray *)pNodes withXMLWriter:(XMLWriter *)pXMLWriter
 {
     if(pNodes) {
-        for (NSDictionary * node in pNodes) {
+        for(NSDictionary * node in pNodes) {
             [self exportNode:node withXMLWriter:pXMLWriter];
         }
     }
@@ -93,6 +99,8 @@
         return [[[CCNodeExporter alloc] init] autorelease];                       
     } else if([pClassName isEqualToString:CCB_CCSPRITE_CLASS_NAME]) {
         return [[[CCSpriteExporter alloc] init] autorelease];
+    } else if([pClassName isEqualToString:CCB_CCLABELBMFONT_CLASS_NAME]) {
+        return [[[CCLabelBMFontExporter alloc] init] autorelease];
     } else {
         [NSException raise:NSInternalInconsistencyException format:@"Unexpected className: '%@'!", pClassName];
         return nil;
