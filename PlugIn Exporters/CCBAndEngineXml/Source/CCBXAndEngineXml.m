@@ -14,6 +14,7 @@
 #import "CCLabelTTFExporter.h"
 #import "CCLayerExporter.h"
 #import "CCLayerColorExporter.h"
+#import "CCLayerGradientExporter.h"
 
 @implementation CCBXAndEngineXml
 
@@ -110,6 +111,8 @@
         return [[[CCLayerExporter alloc] init] autorelease];
     } else if([pClassName isEqualToString:CCB_CCLAYERCOLOR_CLASS_NAME]) {
         return [[[CCLayerColorExporter alloc] init] autorelease];
+    } else if([pClassName isEqualToString:CCB_CCLAYERGRADIENT_CLASS_NAME]) {
+        return [[[CCLayerGradientExporter alloc] init] autorelease];
     } else {
         [NSException raise:NSInternalInconsistencyException format:@"Unexpected className: '%@'!", pClassName];
         return nil;
