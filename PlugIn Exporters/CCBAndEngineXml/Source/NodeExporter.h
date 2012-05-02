@@ -16,6 +16,7 @@
 #define CCB_PROPERTIES_PROPERTY_NAME @"name"
 #define CCB_PROPERTIES_PROPERTY_VALUE @"value"
 
+
 #define CCB_POSITION_TYPE_RELATIVE_BOTTOMLEFT 0
 #define CCB_POSITION_TYPE_RELATIVE_TOPLEFT 1
 #define CCB_POSITION_TYPE_RELATIVE_TOPRIGHT 2
@@ -27,6 +28,7 @@
 #define CCBAEX_POSITION_TYPE_RELATIVE_TOPRIGHT @"relativeTopRight"
 #define CCBAEX_POSITION_TYPE_RELATIVE_BOTTOMRIGHT @"relativeBottomRight"
 #define CCBAEX_POSITION_TYPE_PERCENT_PARENT @"percentParent"
+
 
 #define CCB_SIZE_TYPE_ABSOLUTE 0
 #define CCB_SIZE_TYPE_PERCENT_PARENT 1
@@ -40,6 +42,7 @@
 
 - (void) exportNode:(NSString*)pNodeName withNode:(NSDictionary *)pNode withXMLWriter:(XMLWriter *)pXMLWriter withCCBXAndEngineXml:(CCBXAndEngineXml *)pCCBXAndEngineXml;
 - (void) exportNodeProperties:(NSDictionary *)pNode withProperties:(NSArray *)pProperties withXMLWriter:(XMLWriter *)pXMLWriter withCCBXAndEngineXml:(CCBXAndEngineXml *)pCCBXAndEngineXml;
+- (id) findDirectProperty:(NSString *)pProperty withNode:(NSDictionary *)pNode;
 - (id) findProperty:(NSString *)pProperty withProperties:(NSArray *)pProperties;
 - (id) findProperty:(NSString *)pProperty withProperties:(NSArray *)pProperties withIndex:(int)pIndex;
 

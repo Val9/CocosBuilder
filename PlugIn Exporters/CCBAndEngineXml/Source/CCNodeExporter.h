@@ -10,6 +10,11 @@
 #import "NodeExporter.h"
 
 #define CCB_CCNODE_CLASS_NAME @"CCNode"
+#define CCB_CCNODE_DIRECTPROPERTY_MEMBERVARASSIGNMENT_NAME @"memberVarAssignmentName"
+#define CCB_CCNODE_DIRECTPROPERTY_MEMBERVARASSIGNMENT_TYPE @"memberVarAssignmentType"
+#define CCB_CCNODE_DIRECTPROPERTY_MEMBERVARASSIGNMENT_TYPE_NONE 0
+#define CCB_CCNODE_DIRECTPROPERTY_MEMBERVARASSIGNMENT_TYPE_ROOT 1
+#define CCB_CCNODE_DIRECTPROPERTY_MEMBERVARASSIGNMENT_TYPE_OWNER 2
 #define CCB_CCNODE_PROPERTY_POSITION @"position"
 #define CCB_CCNODE_PROPERTY_ANCHORPOINT @"anchorPoint"
 #define CCB_CCNODE_PROPERTY_IS_RELATIVE_ANCHORPOINT @"isRelativeAnchorPoint"
@@ -23,6 +28,11 @@
 #define CCB_CCNODE_PROPERTY_OPACITY @"opacity"
 
 #define CCBAEX_TAG_CCNODE @"CCNode"
+#define CCBAEX_TAG_CCNODE_ATTRIBUTE_MEMBERVARIABLEASSIGNMENT_NAME @"memberVariableAssignmentName"
+#define CCBAEX_TAG_CCNODE_ATTRIBUTE_MEMBERVARIABLEASSIGNMENT_TYPE @"memberVariableAssignmentType"
+#define CCBAEX_TAG_CCNODE_ATTRIBUTE_MEMBERVARIABLEASSIGNMENT_TYPE_NONE @"none"
+#define CCBAEX_TAG_CCNODE_ATTRIBUTE_MEMBERVARIABLEASSIGNMENT_TYPE_ROOT @"root"
+#define CCBAEX_TAG_CCNODE_ATTRIBUTE_MEMBERVARIABLEASSIGNMENT_TYPE_OWNER @"owner"
 #define CCBAEX_TAG_CCNODE_ATTRIBUTE_POSITION_X @"x"
 #define CCBAEX_TAG_CCNODE_ATTRIBUTE_POSITION_Y @"y"
 #define CCBAEX_TAG_CCNODE_ATTRIBUTE_POSITION_TYPE @"positionType"
@@ -48,8 +58,9 @@
 
 - (void) exportCCNodeProperties:(NSDictionary *)pNode withProperties:(NSArray *)pProperties withXMLWriter:(XMLWriter *)pXMLWriter withCCBXAndEngineXml:(CCBXAndEngineXml *)pCCBXAndEngineXml;
 
-- (void) exportCCNodeContentSize:(NSDictionary *)pNode withProperties:(NSArray *)pProperties withXMLWriter:(XMLWriter *)pXMLWriter withCCBXAndEngineXml:(CCBXAndEngineXml *)pCCBXAndEngineXml;
+- (void) exportCCNodeMemberVarAssignment:(NSDictionary *)pNode withProperties:(NSArray *)pProperties withXMLWriter:(XMLWriter *)pXMLWriter withCCBXAndEngineXml:(CCBXAndEngineXml *)pCCBXAndEngineXml;
 - (void) exportCCNodePosition:(NSDictionary *)pNode withProperties:(NSArray *)pProperties withXMLWriter:(XMLWriter *)pXMLWriter withCCBXAndEngineXml:(CCBXAndEngineXml *)pCCBXAndEngineXml;
+- (void) exportCCNodeContentSize:(NSDictionary *)pNode withProperties:(NSArray *)pProperties withXMLWriter:(XMLWriter *)pXMLWriter withCCBXAndEngineXml:(CCBXAndEngineXml *)pCCBXAndEngineXml;
 - (void) exportCCNodeAnchorPoint:(NSDictionary *)pNode withProperties:(NSArray *)pProperties withXMLWriter:(XMLWriter *)pXMLWriter withCCBXAndEngineXml:(CCBXAndEngineXml *)pCCBXAndEngineXml;
 - (void) exportCCNodeIsRelativeAnchorPoint:(NSDictionary *)pNode withProperties:(NSArray *)pProperties withXMLWriter:(XMLWriter *)pXMLWriter withCCBXAndEngineXml:(CCBXAndEngineXml *)pCCBXAndEngineXml;
 - (void) exportCCNodeScale:(NSDictionary *)pNode withProperties:(NSArray *)pProperties withXMLWriter:(XMLWriter *)pXMLWriter withCCBXAndEngineXml:(CCBXAndEngineXml *)pCCBXAndEngineXml;
@@ -58,5 +69,7 @@
 - (void) exportCCNodeTag:(NSDictionary *)pNode withProperties:(NSArray *)pProperties withXMLWriter:(XMLWriter *)pXMLWriter withCCBXAndEngineXml:(CCBXAndEngineXml *)pCCBXAndEngineXml;
 - (void) exportCCNodeColor:(NSDictionary *)pNode withProperties:(NSArray *)pProperties withXMLWriter:(XMLWriter *)pXMLWriter withCCBXAndEngineXml:(CCBXAndEngineXml *)pCCBXAndEngineXml;
 - (void) exportCCNodeBlendFunction:(NSDictionary *)pNode withProperties:(NSArray *)pProperties withXMLWriter:(XMLWriter *)pXMLWriter withCCBXAndEngineXml:(CCBXAndEngineXml *)pCCBXAndEngineXml;
+
+- (NSString *) convertMemberVarAssignmentTypeValueToMemberVariableAssignmentType:(int)pMemberVarAssignmentType;
 
 @end

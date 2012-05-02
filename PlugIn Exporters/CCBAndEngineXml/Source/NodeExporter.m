@@ -34,8 +34,13 @@
             return [property objectForKey:CCB_PROPERTIES_PROPERTY_VALUE];
         }
     }
-    [NSException raise:NSInternalInconsistencyException format:@"Could not find attribute: '%@'!", pProperty];
+    [NSException raise:NSInternalInconsistencyException format:@"Could not find property: '%@'!", pProperty];
     return nil;
+}
+
+- (id) findDirectProperty:(NSString *)pProperty withNode:(NSDictionary *)pNode
+{
+    return [pNode objectForKey:pProperty];
 }
 
 - (id) findProperty:(NSString *)pProperty withProperties:(NSArray *)pProperties withIndex:(int)pIndex
@@ -44,7 +49,7 @@
     return [array objectAtIndex:pIndex];
 }
 
-- (NSString *)convertPositionTypeValueToPositionType:(int)pPositionTypeValue
+- (NSString *) convertPositionTypeValueToPositionType:(int)pPositionTypeValue
 {
     switch(pPositionTypeValue) {
         case CCB_POSITION_TYPE_RELATIVE_BOTTOMLEFT:
@@ -63,7 +68,7 @@
     }
 }
 
-- (NSString *)convertSizeTypeValueToSizeType:(int)pSizeTypeValue
+- (NSString *) convertSizeTypeValueToSizeType:(int)pSizeTypeValue
 {
     switch(pSizeTypeValue) {
         case CCB_SIZE_TYPE_ABSOLUTE:

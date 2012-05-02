@@ -17,6 +17,7 @@
 
 - (void)exportCCNodeProperties:(NSDictionary *)pNode withProperties:(NSArray *)pProperties withXMLWriter:(XMLWriter *)pXMLWriter withCCBXAndEngineXml:(CCBXAndEngineXml *)pCCBXAndEngineXml
 {
+    [self exportCCNodeMemberVarAssignment:pNode withProperties:pProperties withXMLWriter:pXMLWriter withCCBXAndEngineXml:pCCBXAndEngineXml];
     [self exportCCNodePosition:pNode withProperties:pProperties withXMLWriter:pXMLWriter withCCBXAndEngineXml:pCCBXAndEngineXml];
     [self exportCCNodeContentSize:pNode withProperties:pProperties withXMLWriter:pXMLWriter withCCBXAndEngineXml:pCCBXAndEngineXml];
     [self exportCCNodeAnchorPoint:pNode withProperties:pProperties withXMLWriter:pXMLWriter withCCBXAndEngineXml:pCCBXAndEngineXml];
@@ -27,13 +28,23 @@
     [self exportCCNodeTag:pNode withProperties:pProperties withXMLWriter:pXMLWriter withCCBXAndEngineXml:pCCBXAndEngineXml];
 }
 
+- (void) exportCCNodeMemberVarAssignment:(NSDictionary *)pNode withProperties:(NSArray *)pProperties withXMLWriter:(XMLWriter *)pXMLWriter withCCBXAndEngineXml:(CCBXAndEngineXml *)pCCBXAndEngineXml
+{
+    NSString * memberVarAssignmentName = [self findDirectProperty:CCB_CCNODE_DIRECTPROPERTY_MEMBERVARASSIGNMENT_NAME withNode:pNode];
+    int memberVarAssignmentTypeValue = [[self findDirectProperty:CCB_CCNODE_DIRECTPROPERTY_MEMBERVARASSIGNMENT_TYPE withNode:pNode] intValue];
+    NSString * memberVarAssignmentType = [self convertMemberVarAssignmentTypeValueToMemberVariableAssignmentType:memberVarAssignmentTypeValue];
+    
+    [pXMLWriter writeAttribute:CCBAEX_TAG_CCNODE_ATTRIBUTE_MEMBERVARIABLEASSIGNMENT_NAME value:memberVarAssignmentName];
+    [pXMLWriter writeAttribute:CCBAEX_TAG_CCNODE_ATTRIBUTE_MEMBERVARIABLEASSIGNMENT_TYPE value:memberVarAssignmentType];
+}
+
 - (void) exportCCNodePosition:(NSDictionary *)pNode withProperties:(NSArray *)pProperties withXMLWriter:(XMLWriter *)pXMLWriter withCCBXAndEngineXml:(CCBXAndEngineXml *)pCCBXAndEngineXml
 {
     float x = [[self findProperty:CCB_CCNODE_PROPERTY_POSITION withProperties:pProperties withIndex:0] floatValue];
     float y = [[self findProperty:CCB_CCNODE_PROPERTY_POSITION withProperties:pProperties withIndex:1] floatValue];
     int positionTypeValue = [[self findProperty:CCB_CCNODE_PROPERTY_POSITION withProperties:pProperties withIndex:2] intValue];
     NSString * positionType = [self convertPositionTypeValueToPositionType:positionTypeValue];
-
+    
     [pXMLWriter writeAttribute:CCBAEX_TAG_CCNODE_ATTRIBUTE_POSITION_X value:[[NSNumber numberWithFloat:x] stringValue]];
     [pXMLWriter writeAttribute:CCBAEX_TAG_CCNODE_ATTRIBUTE_POSITION_Y value:[[NSNumber numberWithFloat:y] stringValue]];
     [pXMLWriter writeAttribute:CCBAEX_TAG_CCNODE_ATTRIBUTE_POSITION_TYPE value:positionType];
@@ -117,6 +128,21 @@
     [pXMLWriter writeAttribute:CCBAEX_TAG_CCNODE_ATTRIBUTE_COLOR_GREEN value:[[NSNumber numberWithInt:green] stringValue]];
     [pXMLWriter writeAttribute:CCBAEX_TAG_CCNODE_ATTRIBUTE_COLOR_BLUE value:[[NSNumber numberWithInt:blue] stringValue]];
     [pXMLWriter writeAttribute:CCBAEX_TAG_CCNODE_ATTRIBUTE_COLOR_ALPHA value:[[NSNumber numberWithInt:opacity] stringValue]];
+}
+
+- (NSString *)convertMemberVarAssignmentTypeValueToMemberVariableAssignmentType:(int)pMemberVarAssignmentType
+{
+    switch(pMemberVarAssignmentType) {
+        case CCB_CCNODE_DIRECTPROPERTY_MEMBERVARASSIGNMENT_TYPE_NONE:
+            return CCBAEX_TAG_CCNODE_ATTRIBUTE_MEMBERVARIABLEASSIGNMENT_TYPE_NONE;
+        case CCB_CCNODE_DIRECTPROPERTY_MEMBERVARASSIGNMENT_TYPE_ROOT:
+            return CCBAEX_TAG_CCNODE_ATTRIBUTE_MEMBERVARIABLEASSIGNMENT_TYPE_ROOT;
+        case CCB_CCNODE_DIRECTPROPERTY_MEMBERVARASSIGNMENT_TYPE_OWNER:
+            return CCBAEX_TAG_CCNODE_ATTRIBUTE_MEMBERVARIABLEASSIGNMENT_TYPE_OWNER;
+        default:
+            [NSException raise:NSInternalInconsistencyException format:@"Illegal parameter: '%d'!", pMemberVarAssignmentType];
+            return nil;
+    }
 }
 
 @end
