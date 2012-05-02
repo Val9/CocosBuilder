@@ -12,6 +12,7 @@
 #import "CCBFileExporter.h"
 #import "CCNodeExporter.h"
 #import "CCSpriteExporter.h"
+#import "CCRotatingSpriteExporter.h"
 #import "CCScale9SpriteExporter.h"
 #import "CCLabelBMFontExporter.h"
 #import "CCLabelTTFExporter.h"
@@ -108,6 +109,8 @@
         return [[[CCNodeExporter alloc] init] autorelease];                       
     } else if([pClassName isEqualToString:CCB_CCSPRITE_CLASS_NAME]) {
         return [[[CCSpriteExporter alloc] init] autorelease];
+    } else if([pClassName isEqualToString:CCB_CCROTATINGSPRITE_CLASS_NAME]) {
+        return [[[CCRotatingSpriteExporter alloc] init] autorelease];
     } else if([pClassName isEqualToString:CCB_CCSCALE9SPRITE_CLASS_NAME]) {
         return [[[CCScale9SpriteExporter alloc] init] autorelease];
     } else if([pClassName isEqualToString:CCB_CCLABELBMFONT_CLASS_NAME]) {

@@ -20,6 +20,7 @@
 		4AF2629C155080DD0006ADFE /* CCLayerGradientExporter.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AF2629B155080DD0006ADFE /* CCLayerGradientExporter.m */; };
 		4AF2629F155085D10006ADFE /* CCScale9SpriteExporter.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AF2629E155085D10006ADFE /* CCScale9SpriteExporter.m */; };
 		4AF262A215508D440006ADFE /* CCBFileExporter.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AF262A115508D440006ADFE /* CCBFileExporter.m */; };
+		4AF262AC1550A9590006ADFE /* CCRotatingSpriteExporter.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AF262AB1550A9580006ADFE /* CCRotatingSpriteExporter.m */; };
 		E38B844814FF93C30030AFF2 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E38B844714FF93C30030AFF2 /* Cocoa.framework */; };
 		E38B845214FF93C30030AFF2 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = E38B845014FF93C30030AFF2 /* InfoPlist.strings */; };
 		E38B845B14FF93FC0030AFF2 /* CCBXAndEngineXml.m in Sources */ = {isa = PBXBuildFile; fileRef = E38B845A14FF93FC0030AFF2 /* CCBXAndEngineXml.m */; };
@@ -52,6 +53,8 @@
 		4AF2629E155085D10006ADFE /* CCScale9SpriteExporter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCScale9SpriteExporter.m; sourceTree = "<group>"; };
 		4AF262A015508D440006ADFE /* CCBFileExporter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCBFileExporter.h; sourceTree = "<group>"; };
 		4AF262A115508D440006ADFE /* CCBFileExporter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCBFileExporter.m; sourceTree = "<group>"; };
+		4AF262AA1550A9580006ADFE /* CCRotatingSpriteExporter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCRotatingSpriteExporter.h; sourceTree = "<group>"; };
+		4AF262AB1550A9580006ADFE /* CCRotatingSpriteExporter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCRotatingSpriteExporter.m; sourceTree = "<group>"; };
 		E38B844414FF93C30030AFF2 /* CCBAndEngineXml.ccbPlugExport */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CCBAndEngineXml.ccbPlugExport; sourceTree = BUILT_PRODUCTS_DIR; };
 		E38B844714FF93C30030AFF2 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		E38B844A14FF93C30030AFF2 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
@@ -146,6 +149,8 @@
 				4AF2629B155080DD0006ADFE /* CCLayerGradientExporter.m */,
 				4AF26265154F13CB0006ADFE /* CCNodeExporter.h */,
 				4AF26266154F13CB0006ADFE /* CCNodeExporter.m */,
+				4AF262AA1550A9580006ADFE /* CCRotatingSpriteExporter.h */,
+				4AF262AB1550A9580006ADFE /* CCRotatingSpriteExporter.m */,
 				4AF2629D155085D10006ADFE /* CCScale9SpriteExporter.h */,
 				4AF2629E155085D10006ADFE /* CCScale9SpriteExporter.m */,
 				4AF2627C154FC43A0006ADFE /* CCSpriteExporter.h */,
@@ -261,6 +266,7 @@
 				4AF2629C155080DD0006ADFE /* CCLayerGradientExporter.m in Sources */,
 				4AF2629F155085D10006ADFE /* CCScale9SpriteExporter.m in Sources */,
 				4AF262A215508D440006ADFE /* CCBFileExporter.m in Sources */,
+				4AF262AC1550A9590006ADFE /* CCRotatingSpriteExporter.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
