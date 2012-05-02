@@ -15,6 +15,11 @@
     return [super initWithNodeName:CCB_CCLABELTTF_CLASS_NAME];
 }
 
+- (id) initWithNodeName:(NSString*)pNodeName 
+{
+    return [super initWithNodeName:pNodeName];
+}
+
 - (void) exportNodeProperties:(NSDictionary *)pNode withProperties:(NSArray *)pProperties withXMLWriter:(XMLWriter *)pXMLWriter withCCBXAndEngineXml:(CCBXAndEngineXml *)pCCBXAndEngineXml
 {
     [super exportNodeProperties:pNode withProperties:pProperties withXMLWriter:pXMLWriter withCCBXAndEngineXml:pCCBXAndEngineXml];

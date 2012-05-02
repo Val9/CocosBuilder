@@ -16,6 +16,7 @@
 #import "CCScale9SpriteExporter.h"
 #import "CCLabelBMFontExporter.h"
 #import "CCLabelTTFExporter.h"
+#import "CCLocalizedLabelTTFExporter.h"
 #import "CCLayerExporter.h"
 #import "CCLayerColorExporter.h"
 #import "CCLayerGradientExporter.h"
@@ -117,6 +118,8 @@
         return [[[CCLabelBMFontExporter alloc] init] autorelease];
     } else if([pClassName isEqualToString:CCB_CCLABELTTF_CLASS_NAME]) {
         return [[[CCLabelTTFExporter alloc] init] autorelease];
+    } else if([pClassName isEqualToString:CCB_CCLOCALIZEDLABELTTF_CLASS_NAME]) {
+        return [[[CCLocalizedLabelTTFExporter alloc] init] autorelease];
     } else if([pClassName isEqualToString:CCB_CCLAYER_CLASS_NAME]) {
         return [[[CCLayerExporter alloc] init] autorelease];
     } else if([pClassName isEqualToString:CCB_CCLAYERCOLOR_CLASS_NAME]) {
