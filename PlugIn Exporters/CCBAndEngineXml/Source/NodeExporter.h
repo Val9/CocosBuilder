@@ -37,15 +37,8 @@
 #define CCBAEX_SIZE_TYPE_RELATIVE_PARENT @"relativeParent"
 
 @interface NodeExporter : NSObject
-{
-    NSString* mNodeName;
-}
 
-@property (nonatomic,readonly) NSString* nodeName;
-
-- (id) initWithNodeName:(NSString*)pNodeName;
-
-- (void) exportNode:(NSDictionary *)pNode withXMLWriter:(XMLWriter *)pXMLWriter withCCBXAndEngineXml:(CCBXAndEngineXml *)pCCBXAndEngineXml;
+- (void) exportNode:(NSString*)pNodeName withNode:(NSDictionary *)pNode withXMLWriter:(XMLWriter *)pXMLWriter withCCBXAndEngineXml:(CCBXAndEngineXml *)pCCBXAndEngineXml;
 - (void) exportNodeProperties:(NSDictionary *)pNode withProperties:(NSArray *)pProperties withXMLWriter:(XMLWriter *)pXMLWriter withCCBXAndEngineXml:(CCBXAndEngineXml *)pCCBXAndEngineXml;
 - (id) findProperty:(NSString *)pProperty withProperties:(NSArray *)pProperties;
 - (id) findProperty:(NSString *)pProperty withProperties:(NSArray *)pProperties withIndex:(int)pIndex;

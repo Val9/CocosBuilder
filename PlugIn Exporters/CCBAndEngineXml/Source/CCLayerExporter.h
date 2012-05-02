@@ -12,8 +12,6 @@
 
 @interface CCLayerExporter : CCNodeExporter
 
-- (id) initWithNodeName:(NSString *)pNodeName;
-
 - (void) exportCCLayerProperties:(NSDictionary *)pNode withProperties:(NSArray *)pProperties withXMLWriter:(XMLWriter *)pXMLWriter withCCBXAndEngineXml:(CCBXAndEngineXml *)pCCBXAndEngineXml;
 
 @end

@@ -10,16 +10,6 @@
 
 @implementation CCNodeExporter
 
-- (id) init
-{
-    return [super initWithNodeName:CCBAEX_TAG_CCNODE];
-}
-
-- (id) initWithNodeName:(NSString*)pNodeName 
-{
-    return [super initWithNodeName:pNodeName];
-}
-
 - (void) exportNodeProperties:(NSDictionary *)pNode withProperties:(NSArray *)pProperties withXMLWriter:(XMLWriter *)pXMLWriter withCCBXAndEngineXml:(CCBXAndEngineXml *)pCCBXAndEngineXml
 {
     [self exportCCNodeProperties:pNode withProperties:pProperties withXMLWriter:pXMLWriter withCCBXAndEngineXml:pCCBXAndEngineXml];

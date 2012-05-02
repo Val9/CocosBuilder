@@ -10,20 +10,9 @@
 
 @implementation NodeExporter
 
-@synthesize nodeName = mNodeName;
-
-- (id) initWithNodeName:(NSString *)pNodeName
+- (void) exportNode:(NSString *)pNodeName withNode:(NSDictionary *)pNode withXMLWriter:(XMLWriter *)pXMLWriter withCCBXAndEngineXml:(CCBXAndEngineXml *)pCCBXAndEngineXml
 {
-    if((self = [super init]))
-	{
-        mNodeName = pNodeName;
-    }
-    return self;
-}
-
-- (void) exportNode:(NSDictionary *)pNode withXMLWriter:(XMLWriter *)pXMLWriter withCCBXAndEngineXml:(CCBXAndEngineXml *)pCCBXAndEngineXml
-{
-    [pXMLWriter writeStartElement:mNodeName];
+    [pXMLWriter writeStartElement:pNodeName];
     
     NSArray * properties = [pNode objectForKey:CCB_PROPERTIES];
     [self exportNodeProperties:pNode withProperties:properties withXMLWriter:pXMLWriter withCCBXAndEngineXml:pCCBXAndEngineXml];

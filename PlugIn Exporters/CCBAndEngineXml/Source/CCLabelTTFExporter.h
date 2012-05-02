@@ -28,8 +28,6 @@
 
 @interface CCLabelTTFExporter : CCNodeExporter
 
-- (id) initWithNodeName:(NSString*)pNodeName;
-
 - (void) exportCCLabelTTFProperties:(NSDictionary *)pNode withProperties:(NSArray *)pProperties withXMLWriter:(XMLWriter *)pXMLWriter withCCBXAndEngineXml:(CCBXAndEngineXml *)pCCBXAndEngineXml;
 
 - (void) exportCCLabelTTFFontName:(NSDictionary *)pNode withProperties:(NSArray *)pProperties withXMLWriter:(XMLWriter *)pXMLWriter withCCBXAndEngineXml:(CCBXAndEngineXml *)pCCBXAndEngineXml;

@@ -84,21 +84,24 @@
 - (void) exportNode:(NSDictionary *)pNode withXMLWriter:(XMLWriter *)pXMLWriter
 {
     NSString * baseClass = [pNode objectForKey:CCB_BASECLASS];
-    NSString * customClass = [pNode objectForKey:CCB_CUSTOMCLASS];
 
-    /* If there is a custom class, pick it. Otherwise pick the base class. */
-    NSString * className;
-    if(customClass == nil || [customClass length] == 0) {
-        NSLog(@"CCBAndEngineXml: Exporting node: '%@'.", baseClass);
-        className = baseClass;
-    } else {
-        NSLog(@"CCBAndEngineXml: Exporting custom node: '%@'.", customClass);
-        className = customClass;
-    }
+    /* Find the NodeExporter capable of exporting this node. */
+    NodeExporter * nodeExporter = [self getNodeExporterFromClassName:baseClass];
 
-    NodeExporter * nodeExporter = [self getNodeExporterFromClassName:className];
     if(nodeExporter) {
-        [nodeExporter exportNode:pNode withXMLWriter:pXMLWriter withCCBXAndEngineXml:self];
+        NSString * customClass = [pNode objectForKey:CCB_CUSTOMCLASS];
+
+        /* If there is a custom class, pick it. Otherwise pick the base class. */
+        NSString * className;
+        if(customClass == nil || [customClass length] == 0) {
+            NSLog(@"CCBAndEngineXml: Exporting node: '%@'.", baseClass);
+            className = baseClass;
+        } else {
+            NSLog(@"CCBAndEngineXml: Exporting custom node: '%@'.", customClass);
+            className = customClass;
+        }
+
+        [nodeExporter exportNode:className withNode:pNode withXMLWriter:pXMLWriter withCCBXAndEngineXml:self];
     }
 }
 
