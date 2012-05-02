@@ -63,11 +63,16 @@ enum
 + (void) setSize:(NSSize)size forNode:(CCNode *)node prop:(NSString *)prop;
 + (NSSize) sizeForNode:(CCNode*)node prop:(NSString*)prop;
 + (int) sizeTypeForNode:(CCNode*)node prop:(NSString*)prop;
++ (void) refreshSizeForNode:(CCNode*)node prop:(NSString*)prop;
 
 + (void) setScaledX:(float)scaleX Y:(float)scaleY type:(int)type forNode:(CCNode*)node prop:(NSString*)prop;
 + (float) scaleXForNode:(CCNode*)node prop:(NSString*)prop;
 + (float) scaleYForNode:(CCNode*)node prop:(NSString*)prop;
 + (int) scaledFloatTypeForNode:(CCNode*)node prop:(NSString*)prop;
+
++ (void) setFloatScale:(float)f type:(int)type forNode:(CCNode*)node prop:(NSString*)prop;
++ (float) floatScaleForNode:(CCNode*)node prop:(NSString*)prop;
++ (int) floatScaleTypeForNode:(CCNode*)node prop:(NSString*)prop;
 
 + (void) refreshPositionsForChildren:(CCNode*)node;
 + (void) refreshAllPositions;

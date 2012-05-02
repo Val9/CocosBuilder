@@ -22,58 +22,45 @@
  * THE SOFTWARE.
  */
 
-#import "InspectorSize.h"
+#import "InspectorFloatScale.h"
 #import "PositionPropertySetter.h"
+#import "CCBGlobals.h"
+#import "CocosBuilderAppDelegate.h"
 
-@implementation InspectorSize
+@implementation InspectorFloatScale
 
-- (void) setWidth:(float)width
+- (void) setF:(float)f
 {
-    NSSize size = [PositionPropertySetter sizeForNode:selection prop:propertyName];
-    size.width = width;
-    [PositionPropertySetter setSize:size forNode:selection prop:propertyName];
+    [[[CCBGlobals globals] appDelegate] saveUndoStateWillChangeProperty:propertyName];
+    
+    [PositionPropertySetter setFloatScale:f type:[PositionPropertySetter floatScaleTypeForNode:selection prop:propertyName] forNode:selection prop:propertyName];
+    
     [self updateAffectedProperties];
 }
 
-- (float) width
+- (float) f
 {
-    return [PositionPropertySetter sizeForNode:selection prop:propertyName].width;
-}
-
-- (void) setHeight:(float)height
-{
-	NSSize size = [PositionPropertySetter sizeForNode:selection prop:propertyName];
-    size.height = height;
-    [PositionPropertySetter setSize:size forNode:selection prop:propertyName];
-    [self updateAffectedProperties];
-}
-
-- (float) height
-{
-    return [PositionPropertySetter sizeForNode:selection prop:propertyName].height;
-}
-
-- (void) setType:(int)type
-{
-    NSSize size = [PositionPropertySetter sizeForNode:selection prop:propertyName];
-    [PositionPropertySetter setSize:size type:type forNode:selection prop:propertyName];
-    [self updateAffectedProperties];
+    return [PositionPropertySetter floatScaleForNode:selection prop:propertyName];
 }
 
 - (int) type
 {
-    return [PositionPropertySetter sizeTypeForNode:selection prop:propertyName];
+    return [PositionPropertySetter floatScaleTypeForNode:selection prop:propertyName];
+}
+
+- (void) setType:(int)type
+{
+    [[[CCBGlobals globals] appDelegate] saveUndoStateWillChangeProperty:propertyName];
+    
+    [PositionPropertySetter setFloatScale:[PositionPropertySetter floatScaleForNode:selection prop:propertyName] type: type forNode:selection prop:propertyName];
+    
+    [self updateAffectedProperties];
 }
 
 - (void) refresh
 {
-    [PositionPropertySetter refreshSizeForNode:selection prop:propertyName];
-    
-    [self willChangeValueForKey:@"width"];
-    [self didChangeValueForKey:@"width"];
-    
-    [self willChangeValueForKey:@"height"];
-    [self didChangeValueForKey:@"height"];
+    [self willChangeValueForKey:@"f"];
+    [self didChangeValueForKey:@"f"];
 }
 
 @end

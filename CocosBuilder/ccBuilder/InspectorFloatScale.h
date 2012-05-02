@@ -22,36 +22,11 @@
  * THE SOFTWARE.
  */
 
-#import <Foundation/Foundation.h>
+#import "InspectorValue.h"
 
-@interface ResolutionSetting : NSObject
-{
-    BOOL enabled;
-    NSString* name;
-    int width;
-    int height;
-    NSString* ext;
-    float scale;
-    BOOL centeredOrigin;
-    NSArray* exts;
-}
+@interface InspectorFloatScale : InspectorValue
 
-@property (nonatomic,assign) BOOL enabled;
-@property (nonatomic,copy) NSString* name;
-@property (nonatomic,assign) int width;
-@property (nonatomic,assign) int height;
-@property (nonatomic,copy) NSString* ext;
-@property (nonatomic,assign) float scale;
-@property (nonatomic,assign) BOOL centeredOrigin;
-@property (nonatomic,readonly) NSArray* exts;
-
-+ (ResolutionSetting*) settingIPhoneLandscape;
-+ (ResolutionSetting*) settingIPhonePortrait;
-+ (ResolutionSetting*) settingIPadLandscape;
-+ (ResolutionSetting*) settingIPadPortrait;
-
-- (id) initWithSerialization:(id)serialization;
-
-- (id) serialize;
+@property (nonatomic,assign) float f;
+@property (nonatomic,assign) int type;
 
 @end
