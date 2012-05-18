@@ -20,6 +20,7 @@
 #import "CCLayerExporter.h"
 #import "CCLayerColorExporter.h"
 #import "CCLayerGradientExporter.h"
+#import "CCScrollViewExporter.h"
 
 @implementation CCBXAndEngineXml
 
@@ -129,6 +130,8 @@
         return [[[CCLayerColorExporter alloc] init] autorelease];
     } else if([pClassName isEqualToString:CCB_CCLAYERGRADIENT_CLASS_NAME]) {
         return [[[CCLayerGradientExporter alloc] init] autorelease];
+    } else if([pClassName isEqualToString:CCB_CCSCROLLVIEW_CLASS_NAME]) {
+        return [[[CCScrollViewExporter alloc] init] autorelease];
     } else {
         [NSException raise:NSInternalInconsistencyException format:@"Unexpected className: '%@'!", pClassName];
         return nil;

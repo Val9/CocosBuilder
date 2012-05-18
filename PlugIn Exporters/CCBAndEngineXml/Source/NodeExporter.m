@@ -77,6 +77,10 @@
             return CCBAEX_SIZE_TYPE_PERCENT_PARENT;
         case CCB_SIZE_TYPE_RELATIVE_PARENT:
             return CCBAEX_SIZE_TYPE_RELATIVE_PARENT;
+        case CCB_SIZE_TYPE_PERCENT_PARENT_WIDTH_FIXED_HEIGHT:
+            return CCBAEX_SIZE_TYPE_PERCENT_PARENT_WIDTH_FIXED_HEIGHT;
+        case CCB_SIZE_TYPE_PERCENT_PARENT_HEIGHT_FIXED_WIDTH:
+            return CCBAEX_SIZE_TYPE_PERCENT_PARENT_HEIGHT_FIXED_WIDTH;
         default:
             [NSException raise:NSInternalInconsistencyException format:@"Illegal parameter: '%d'!", pSizeTypeValue];
             return nil;
