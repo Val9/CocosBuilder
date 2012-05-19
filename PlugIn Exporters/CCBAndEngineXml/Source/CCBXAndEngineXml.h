@@ -12,6 +12,7 @@
 #define CCB_VERSION 3
 #define CCB_FILE_EXTENSION @"ccb"
 #define CCBI_FILE_EXTENSION @"ccbi"
+#define CCB_ANIMATIONPLIST_EXTENSION @"plist"
 
 #define CCB_FILEVERSION @"fileVersion"
 #define CCB_STAGE_WIDTH @"stageWidth"
@@ -23,6 +24,7 @@
 
 #define CCBAEX_VERSION 1
 #define CCBAEX_FILE_EXTENSION @"ccbaex"
+#define CCBAEX_ANIMATIONPACK_EXTENSION @"xml"
 
 #define CCBAEX_TAG_CCB @"CCB"
 #define CCBAEX_TAG_CCB_ATTRIBUTE_STAGE_HEIGHT @"stageHeight"

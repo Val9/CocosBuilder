@@ -38,7 +38,7 @@
 
 - (void) exportCCLabelTTFFontSize:(NSDictionary *)pNode withProperties:(NSArray *)pProperties withXMLWriter:(XMLWriter *)pXMLWriter withCCBXAndEngineXml:(CCBXAndEngineXml *)pCCBXAndEngineXml
 {
-    float fontSize = [[self findProperty:CCB_CCLABELTTF_PROPERTY_FONT_SIZE withProperties:pProperties] floatValue];
+    float fontSize = [[self findProperty:CCB_CCLABELTTF_PROPERTY_FONT_SIZE withProperties:pProperties withIndex:0] floatValue];
 
     [pXMLWriter writeAttribute:CCBAEX_TAG_CCLABELTTF_ATTRIBUTE_FONT_SIZE value:[[NSNumber numberWithFloat:fontSize] stringValue]];
 }

@@ -21,6 +21,7 @@
 #import "CCLayerColorExporter.h"
 #import "CCLayerGradientExporter.h"
 #import "CCScrollViewExporter.h"
+#import "CCAnimatedSpriteExporter.h"
 
 @implementation CCBXAndEngineXml
 
@@ -132,6 +133,8 @@
         return [[[CCLayerGradientExporter alloc] init] autorelease];
     } else if([pClassName isEqualToString:CCB_CCSCROLLVIEW_CLASS_NAME]) {
         return [[[CCScrollViewExporter alloc] init] autorelease];
+    } else if([pClassName isEqualToString:CCB_CCANIMATEDSPRITE_CLASS_NAME]) {
+        return [[[CCAnimatedSpriteExporter alloc] init] autorelease];
     } else {
         [NSException raise:NSInternalInconsistencyException format:@"Unexpected className: '%@'!", pClassName];
         return nil;

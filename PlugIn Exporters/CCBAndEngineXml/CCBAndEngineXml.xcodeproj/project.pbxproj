@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		4AC2F85A1566FC7F0086FAEF /* CCScrollViewExporter.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AC2F8591566FC7F0086FAEF /* CCScrollViewExporter.m */; };
+		4AC2F863156716760086FAEF /* CCAnimatedSpriteExporter.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AC2F862156716760086FAEF /* CCAnimatedSpriteExporter.m */; };
 		4AF26267154F13CB0006ADFE /* CCNodeExporter.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AF26266154F13CB0006ADFE /* CCNodeExporter.m */; };
 		4AF2626E154F30B50006ADFE /* NodeExporter.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AF2626D154F30B50006ADFE /* NodeExporter.m */; };
 		4AF2627E154FC43A0006ADFE /* CCSpriteExporter.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AF2627D154FC43A0006ADFE /* CCSpriteExporter.m */; };
@@ -31,6 +32,8 @@
 /* Begin PBXFileReference section */
 		4AC2F8581566FC7F0086FAEF /* CCScrollViewExporter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCScrollViewExporter.h; sourceTree = "<group>"; };
 		4AC2F8591566FC7F0086FAEF /* CCScrollViewExporter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCScrollViewExporter.m; sourceTree = "<group>"; };
+		4AC2F861156716760086FAEF /* CCAnimatedSpriteExporter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCAnimatedSpriteExporter.h; sourceTree = "<group>"; };
+		4AC2F862156716760086FAEF /* CCAnimatedSpriteExporter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCAnimatedSpriteExporter.m; sourceTree = "<group>"; };
 		4AF26265154F13CB0006ADFE /* CCNodeExporter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCNodeExporter.h; sourceTree = "<group>"; };
 		4AF26266154F13CB0006ADFE /* CCNodeExporter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCNodeExporter.m; sourceTree = "<group>"; };
 		4AF2626C154F30B50006ADFE /* NodeExporter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NodeExporter.h; sourceTree = "<group>"; };
@@ -141,6 +144,8 @@
 				E38B845C14FF95290030AFF2 /* CCBX.h */,
 				E38B845914FF93FC0030AFF2 /* CCBXAndEngineXml.h */,
 				E38B845A14FF93FC0030AFF2 /* CCBXAndEngineXml.m */,
+				4AC2F861156716760086FAEF /* CCAnimatedSpriteExporter.h */,
+				4AC2F862156716760086FAEF /* CCAnimatedSpriteExporter.m */,
 				4AF262A015508D440006ADFE /* CCBFileExporter.h */,
 				4AF262A115508D440006ADFE /* CCBFileExporter.m */,
 				4AF262911550680F0006ADFE /* CCLabelTTFExporter.h */,
@@ -279,6 +284,7 @@
 				4AF262AC1550A9590006ADFE /* CCRotatingSpriteExporter.m in Sources */,
 				4AF262B51551215B0006ADFE /* CCLocalizedLabelTTFExporter.m in Sources */,
 				4AC2F85A1566FC7F0086FAEF /* CCScrollViewExporter.m in Sources */,
+				4AC2F863156716760086FAEF /* CCAnimatedSpriteExporter.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
